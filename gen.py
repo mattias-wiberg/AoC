@@ -10,7 +10,7 @@ def generate():
             with open(f"{year}/{day}/input.txt", "w") as f:
                 f.write(requests.get(f"https://adventofcode.com/{year}/day/{day}/input", cookies={"session": session_id}).text)
             with open(f"{year}/{day}/main.py", "w") as f:
-                f.write(f"""# Path: {year}/day{day}/main.py
+                f.write(f"""# Path: {year}/{day}/main.py
 import os
 import sys
 
