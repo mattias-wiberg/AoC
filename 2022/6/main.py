@@ -7,10 +7,24 @@ def read_input(path):
         return f.read()
 
 def part1(data):
-    pass
+    a = []
+    for i,c in enumerate(data):
+        if c in a:
+            a = []
+        else:
+            a.append(c)
+            if len(a) == 4:
+                return i
 
 def part2(data):
-    pass
+    a = []
+    for i,c in enumerate(data):
+        if c in a:
+            a = []
+        else:
+            a.append(c)
+            if len(a) == 13:
+                return i
 
 if __name__ == "__main__":
     data = read_input(os.path.dirname(os.path.abspath(__file__)))
