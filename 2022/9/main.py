@@ -14,18 +14,12 @@ def part1(data):
     H = np.copy(s)
     T = np.copy(H)
     visits = set([tuple(T)])
+    directions = {'R': [1, 0], 'D':[0, -1],'L':[-1, 0],'U':[0, 1]}
 
     for row in rows:
         op, count = row.split(" ")
         count = int(count)
-        if op == "R":
-            direction = [1, 0]
-        elif op == "D":
-            direction = [0, -1]
-        elif op == "L":
-            direction = [-1, 0]
-        elif op == "U":
-            direction = [0, 1]
+        direction = directions[op]
 
         for _ in range(count):
             H += direction
@@ -36,7 +30,6 @@ def part1(data):
                 T += np.sign(H-T) # Move diagonally towards H
             
             visits.add(tuple(T))
-            
     plt.scatter(np.array(list(visits))[:,0], np.array(list(visits))[:,1])
     plt.waitforbuttonpress()
     plt.clf()
@@ -46,18 +39,12 @@ def part2(data):
     rows = data.split("\n")
     R = np.zeros((10, 2)) # 0: head, 1-9: knots
     visits = set([tuple(R[-1])])
+    directions = {'R': [1, 0], 'D':[0, -1],'L':[-1, 0],'U':[0, 1]}
 
     for row in rows:
         op, count = row.split(" ")
         count = int(count)
-        if op == "R":
-            direction = [1, 0]
-        elif op == "D":
-            direction = [0, -1]
-        elif op == "L":
-            direction = [-1, 0]
-        elif op == "U":
-            direction = [0, 1]
+        direction = directions[op]
 
         for _ in range(count):
             R[0] += direction # move head
