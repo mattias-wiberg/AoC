@@ -30,6 +30,7 @@ def part1(data):
                 T += np.sign(H-T) # Move diagonally towards H
             
             visits.add(tuple(T))
+
     plt.scatter(np.array(list(visits))[:,0], np.array(list(visits))[:,1])
     plt.waitforbuttonpress()
     plt.clf()
@@ -56,7 +57,6 @@ def part2(data):
                     R[i] += np.sign(R[i-1]-R[i]) # Move diagonally towards H
             
             visits.add(tuple(R[-1]))
-
         
     plt.scatter(np.array(list(visits))[:,0], np.array(list(visits))[:,1])
     plt.waitforbuttonpress()
